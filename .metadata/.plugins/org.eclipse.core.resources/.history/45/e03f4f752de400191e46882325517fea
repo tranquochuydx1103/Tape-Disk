@@ -1,0 +1,238 @@
+package GiaoDien;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JMenuBar;
+import javax.swing.JMenu;
+import java.awt.SystemColor;
+import javax.swing.JButton;
+import java.awt.Font;
+import java.awt.Color;
+import javax.swing.JScrollPane;
+import javax.swing.border.TitledBorder;
+import javax.swing.border.LineBorder;
+import javax.swing.JTable;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.JRadioButton;
+
+public class GiaoDienThueBangDia extends JFrame {
+
+	private JPanel contentPane;
+	private JTable table;
+	private JTextField textField;
+	private JTextField textField_1;
+	private JTextField textField_2;
+	private JTextField textField_3;
+	private JTextField textField_4;
+	private JTextField textField_5;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					GiaoDienThueBangDia frame = new GiaoDienThueBangDia();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public GiaoDienThueBangDia() {
+		setTitle("Thuê Băng Đĩa");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 1366, 730);
+		
+		JMenuBar menuBar = new JMenuBar();
+		menuBar.setBackground(SystemColor.menu);
+		setJMenuBar(menuBar);
+		
+		JMenu mnHThng = new JMenu("Hệ Thống");
+		menuBar.add(mnHThng);
+		contentPane = new JPanel();
+		contentPane.setBackground(SystemColor.inactiveCaption);
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JButton btnThot = new JButton("Thoát");
+		btnThot.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnThot.setBounds(1251, 635, 89, 23);
+		contentPane.add(btnThot);
+		
+		JButton btnngXut = new JButton("Đăng Xuất");
+		btnngXut.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnngXut.setBounds(1088, 635, 117, 23);
+		contentPane.add(btnngXut);
+		
+		JButton btnCit = new JButton("Cài Đặt");
+		btnCit.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnCit.setBounds(949, 635, 89, 23);
+		contentPane.add(btnCit);
+		
+		JPanel panel = new JPanel();
+		panel.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0)), "Th\u00F4ng tin kh\u00E1ch h\u00E0ng", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		panel.setBackground(Color.WHITE);
+		panel.setBounds(1036, 279, 314, 296);
+		contentPane.add(panel);
+		panel.setLayout(null);
+		
+		JLabel lblMKhchHng = new JLabel("Mã KH : ");
+		lblMKhchHng.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblMKhchHng.setBounds(27, 23, 57, 22);
+		panel.add(lblMKhchHng);
+		
+		JLabel lblHVTn = new JLabel("Họ Tên:");
+		lblHVTn.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblHVTn.setBounds(27, 56, 57, 22);
+		panel.add(lblHVTn);
+		
+		JLabel lblSdt = new JLabel("Điện Thoại:");
+		lblSdt.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblSdt.setBounds(10, 189, 74, 22);
+		panel.add(lblSdt);
+		
+		JLabel lblEmail = new JLabel("Email:");
+		lblEmail.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblEmail.setBounds(36, 222, 48, 22);
+		panel.add(lblEmail);
+		
+		JLabel lblNgySinh = new JLabel("Ngày Sinh:");
+		lblNgySinh.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNgySinh.setBounds(10, 122, 74, 22);
+		panel.add(lblNgySinh);
+		
+		JLabel lblGiiTnh = new JLabel("Giới Tính:");
+		lblGiiTnh.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblGiiTnh.setBounds(20, 89, 65, 22);
+		panel.add(lblGiiTnh);
+		
+		JLabel lblaCh = new JLabel("Địa Chỉ:");
+		lblaCh.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblaCh.setBounds(27, 255, 48, 22);
+		panel.add(lblaCh);
+		
+		JLabel lblCmnd = new JLabel("CMND:");
+		lblCmnd.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblCmnd.setBounds(36, 155, 48, 22);
+		panel.add(lblCmnd);
+		
+		textField = new JTextField();
+		textField.setBounds(85, 26, 176, 20);
+		panel.add(textField);
+		textField.setColumns(10);
+		
+		textField_1 = new JTextField();
+		textField_1.setBounds(85, 59, 176, 20);
+		panel.add(textField_1);
+		textField_1.setColumns(10);
+		
+		JButton btnNewButton = new JButton("");
+		btnNewButton.setBounds(271, 23, 33, 23);
+		panel.add(btnNewButton);
+		
+		JLabel lblNam = new JLabel("Nam");
+		lblNam.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNam.setBounds(126, 93, 48, 14);
+		panel.add(lblNam);
+		
+		JLabel lblN = new JLabel("Nữ");
+		lblN.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblN.setBounds(226, 93, 48, 14);
+		panel.add(lblN);
+		
+		JRadioButton radioButton = new JRadioButton("");
+		radioButton.setBackground(Color.WHITE);
+		radioButton.setBounds(99, 88, 21, 23);
+		panel.add(radioButton);
+		
+		JRadioButton radioButton_1 = new JRadioButton("");
+		radioButton_1.setBackground(Color.WHITE);
+		radioButton_1.setBounds(199, 89, 21, 23);
+		panel.add(radioButton_1);
+		
+		textField_2 = new JTextField();
+		textField_2.setBounds(85, 155, 176, 20);
+		panel.add(textField_2);
+		textField_2.setColumns(10);
+		
+		JButton button = new JButton("");
+		button.setBounds(271, 155, 33, 23);
+		panel.add(button);
+		
+		textField_3 = new JTextField();
+		textField_3.setBounds(85, 192, 176, 20);
+		panel.add(textField_3);
+		textField_3.setColumns(10);
+		
+		JButton button_1 = new JButton("");
+		button_1.setBounds(271, 189, 33, 23);
+		panel.add(button_1);
+		
+		textField_4 = new JTextField();
+		textField_4.setBounds(85, 225, 176, 20);
+		panel.add(textField_4);
+		textField_4.setColumns(10);
+		
+		textField_5 = new JTextField();
+		textField_5.setBounds(85, 258, 176, 20);
+		panel.add(textField_5);
+		textField_5.setColumns(10);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(1076, 622, 2, 2);
+		contentPane.add(scrollPane);
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0)), "Th\u00F4ng tin b\u0103ng \u0111\u0129a thu\u00EA", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		panel_1.setBackground(Color.WHITE);
+		panel_1.setBounds(0, 167, 1035, 457);
+		contentPane.add(panel_1);
+		panel_1.setLayout(null);
+		
+		JScrollPane scrollPane_1 = new JScrollPane();
+		scrollPane_1.setBounds(10, 11, 1015, 435);
+		panel_1.add(scrollPane_1);
+		
+		table = new JTable();
+		scrollPane_1.setViewportView(table);
+		
+		JPanel panel_2 = new JPanel();
+		panel_2.setBorder(new LineBorder(new Color(0, 0, 0)));
+		panel_2.setBackground(Color.WHITE);
+		panel_2.setBounds(1036, 0, 314, 278);
+		contentPane.add(panel_2);
+		panel_2.setLayout(null);
+		
+		JPanel panel_3 = new JPanel();
+		panel_3.setBorder(new LineBorder(new Color(0, 0, 0)));
+		panel_3.setBackground(Color.WHITE);
+		panel_3.setBounds(1036, 576, 314, 48);
+		contentPane.add(panel_3);
+		panel_3.setLayout(null);
+		
+		JButton btnThanhTon = new JButton("Thanh Toán");
+		btnThanhTon.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnThanhTon.setBackground(Color.WHITE);
+		btnThanhTon.setBounds(34, 11, 119, 23);
+		panel_3.add(btnThanhTon);
+		
+		JButton btnHy = new JButton("Hủy");
+		btnHy.setBackground(Color.WHITE);
+		btnHy.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnHy.setBounds(184, 11, 89, 23);
+		panel_3.add(btnHy);
+	}
+}

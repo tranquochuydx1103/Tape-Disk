@@ -1,0 +1,247 @@
+package GiaoDien;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.LineBorder;
+import javax.swing.border.TitledBorder;
+import javax.swing.table.DefaultTableModel;
+
+import DieuKhien.QuanLyBangDia;
+import DieuKhien.QuanLyChiTietHoaDon;
+import DieuKhien.QuanLyHoaDon;
+import DoiTuong.ChiTietHoaDon;
+
+import javax.swing.JButton;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
+import java.awt.Font;
+import java.awt.event.ActionListener;
+import java.util.List;
+import java.awt.event.ActionEvent;
+
+public class GiaoDienTraBangDia extends JFrame implements ActionListener {
+
+	private JPanel contentPane;
+	private JTable table, table1;
+	private DefaultTableModel tablemodel, tablemodel1;
+	private String maHD;
+	private JButton btnXoaBangDiaTra, btnThemBangDiaTra, btnXacNhan, btnHuy;
+	private JButton btnTraTatCa;
+	private QuanLyChiTietHoaDon CT;
+	private QuanLyHoaDon HD;
+	private QuanLyBangDia BD;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					GiaoDienTraBangDia frame = new GiaoDienTraBangDia("HD111");
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public GiaoDienTraBangDia(String maHD) {
+		this.maHD = maHD;
+		setTitle("Trả Băng Đĩa");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 1192, 575);
+		setLocationRelativeTo(null);
+		setResizable(false);
+		contentPane = new JPanel();
+		contentPane.setBackground(Color.WHITE);
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+
+		String[] colName = "Mã Băng Đĩa;Tên Băng Đĩa;Số Lượng".split(";");
+		tablemodel = new DefaultTableModel(colName, 0);
+
+		JPanel panel = new JPanel();
+		panel.setBounds(643, 74, 533, 390);
+		panel.setBorder(
+				new TitledBorder(new LineBorder(new Color(0, 0, 0)), "B\u0103ng \u0110\u0129a Mu\u1ED1n Tr\u1EA3",
+						TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		panel.setBackground(Color.WHITE);
+		contentPane.add(panel);
+		panel.setLayout(null);
+
+		String[] Name = "Mã Băng Đĩa;Tên Băng Đĩa;Số Lượng".split(";");
+		tablemodel1 = new DefaultTableModel(Name, 0);
+		JScrollPane scrollPane = new JScrollPane(table1 = new JTable(tablemodel1),
+				JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		scrollPane.setBounds(10, 21, 513, 358);
+		panel.add(scrollPane);
+
+		JPanel panel_1 = new JPanel();
+		panel_1.setBackground(Color.WHITE);
+		panel_1.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0)),
+				"B\u0103ng \u0110\u0129a \u0110ang Thu\u00EA", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		panel_1.setBounds(10, 74, 533, 390);
+		contentPane.add(panel_1);
+		panel_1.setLayout(null);
+		JScrollPane Pane = new JScrollPane(table = new JTable(tablemodel), JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
+				JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		Pane.setBounds(10, 21, 513, 358);
+		panel_1.add(Pane);
+
+		btnXoaBangDiaTra = new JButton("");
+		btnXoaBangDiaTra
+				.setIcon(new ImageIcon("C:\\DeTaiPhatTrienUngDung\\QuanLyThueBangDia\\icon\\icons8-arrow-left-50.png"));
+		btnXoaBangDiaTra.setBackground(Color.WHITE);
+		btnXoaBangDiaTra.setBounds(553, 276, 80, 55);
+		contentPane.add(btnXoaBangDiaTra);
+
+		btnThemBangDiaTra = new JButton("");
+		btnThemBangDiaTra.setIcon(
+				new ImageIcon("C:\\DeTaiPhatTrienUngDung\\QuanLyThueBangDia\\icon\\icons8-arrow-right-55.png"));
+		btnThemBangDiaTra.setBackground(Color.WHITE);
+		btnThemBangDiaTra.setBounds(553, 198, 80, 55);
+		contentPane.add(btnThemBangDiaTra);
+
+		JLabel lblTrBnga = new JLabel("Trả Băng Đĩa");
+		lblTrBnga.setForeground(Color.BLUE);
+		lblTrBnga.setFont(new Font("Arial", Font.BOLD, 30));
+		lblTrBnga.setBounds(501, 11, 233, 52);
+		contentPane.add(lblTrBnga);
+
+		btnXacNhan = new JButton("Xác Nhận Chọn");
+		btnXacNhan.setBackground(Color.GREEN);
+		btnXacNhan.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnXacNhan.setBounds(881, 494, 144, 25);
+		contentPane.add(btnXacNhan);
+
+		btnHuy = new JButton("Hủy");
+		btnHuy.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnHuy.setBounds(1077, 494, 99, 25);
+		contentPane.add(btnHuy);
+
+		btnTraTatCa = new JButton("Trả Tất Cả");
+		btnTraTatCa.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnTraTatCa.setBackground(Color.GREEN);
+		btnTraTatCa.setBounds(680, 494, 144, 25);
+		contentPane.add(btnTraTatCa);
+
+		btnThemBangDiaTra.addActionListener(this);
+		btnXoaBangDiaTra.addActionListener(this);
+		btnXacNhan.addActionListener(this);
+		btnHuy.addActionListener(this);
+		btnTraTatCa.addActionListener(this);
+
+		capNhatBangDuLieu();
+
+	}
+
+	private void capNhatBangDuLieu() {
+		int rowCount = table.getRowCount();
+		for (int i = rowCount; i > 0; i--) {
+			tablemodel.removeRow(i - 1);
+		}
+		CT = new QuanLyChiTietHoaDon();
+		List<ChiTietHoaDon> list = CT.docTuBangChiTietHD(maHD);
+		for (ChiTietHoaDon chiTietHoaDon : list) {
+			int soLuong = chiTietHoaDon.getSoLuong();
+			int i = ktraGioHang(chiTietHoaDon.getMaBangDia());
+			if (i != -1) {
+				String stringSoLuong = (String) table1.getValueAt(i, 2);
+				soLuong = soLuong - Integer.valueOf(stringSoLuong);
+			}
+			if (soLuong != 0) {
+				String[] rowData = { chiTietHoaDon.getMaBangDia(), chiTietHoaDon.getTenBangDia(), soLuong + "" };
+				tablemodel.addRow(rowData);
+			}
+		}
+		table.setModel(tablemodel);
+	}
+
+	private boolean kTraSoLuong(int soThue, int soTra) {
+		if (soTra <= 0) {
+			JOptionPane.showMessageDialog(this, "Vui lòng nhập số lượng đĩa lớn hơn 0");
+			return false;
+		} else if (soTra > soThue) {
+			JOptionPane.showMessageDialog(this, "Số lượng đĩa trả vượt quá cho phép số lượng đĩa đang thuê");
+			return false;
+		}
+		return true;
+	}
+
+	private int ktraGioHang(String maBD) {
+		int rowCount = table1.getRowCount();
+		for (int i = 0; i < rowCount; i++) {
+			String maBangDia = (String) table1.getValueAt(i, 0);
+			if (maBD.trim().equals(maBangDia.trim()))
+				return i;
+		}
+		return -1;
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		Object o = e.getSource();
+		if (o.equals(btnThemBangDiaTra)) {
+			int row = table.getSelectedRow();
+			if (row != -1) {
+				String maBD = (String) table.getValueAt(row, 0);
+				String tenBD = (String) table.getValueAt(row, 1);
+				String stringSo = (String) table.getValueAt(row, 2);
+				int so = Integer.parseInt(stringSo);
+				int soLuong = Integer.valueOf(JOptionPane.showInputDialog(this, "Nhập Số Lượng Đĩa", stringSo));
+				if (kTraSoLuong(so, soLuong)) {
+					int i = ktraGioHang(maBD);
+					if (i != -1) {
+						String stringSoLuong = (String) table1.getValueAt(i, 2);
+						int newSoLuong = soLuong + Integer.valueOf(stringSoLuong);
+						stringSoLuong = newSoLuong + "";
+						table1.setValueAt(stringSoLuong, i, 2);
+						capNhatBangDuLieu();
+					} else {
+						String[] rowData = { maBD, tenBD, soLuong + "" };
+						tablemodel1.addRow(rowData);
+						table1.setModel(tablemodel1);
+						capNhatBangDuLieu();
+					}
+				}
+
+			}
+		} else if (o.equals(btnXoaBangDiaTra)) {
+			int row = table1.getSelectedRow();
+			if (row != -1) {
+				tablemodel1.removeRow(row);
+				capNhatBangDuLieu();
+			}
+		} else if(o.equals(btnTraTatCa)) {
+			HD = new QuanLyHoaDon();
+			HD.traHoaDon(maHD);
+			BD = new QuanLyBangDia();
+			int rowCount = table1.getRowCount();
+			for (int i = 0; i < rowCount; i++) {
+				String maBD = (String) table1.getValueAt(i, 0);
+				int soLuong = Integer.valueOf((String) table1.getValueAt(i, 2));
+				BD.traBangDia(maBD, soLuong);
+			}
+			JOptionPane.showMessageDialog(this, "Trả băng đĩa thành công!");
+			setVisible(false);
+			GiaoDienChiTietPhieuThue t = new GiaoDienChiTietPhieuThue(maHD, 1);
+			t.setVisible(true);
+		}
+	}
+}

@@ -1,0 +1,6 @@
+package DoiTuong;
+
+public class ChucVu {
+	private String maCV,tenCV;
+	
+}

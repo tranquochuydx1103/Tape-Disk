@@ -1,0 +1,261 @@
+package GiaoDien;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JMenuBar;
+import javax.swing.JMenu;
+import java.awt.Color;
+import javax.swing.JToolBar;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import java.awt.Font;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.ImageIcon;
+import java.awt.GridLayout;
+import com.jgoodies.forms.layout.FormLayout;
+import com.jgoodies.forms.layout.ColumnSpec;
+import com.jgoodies.forms.layout.RowSpec;
+import net.miginfocom.swing.MigLayout;
+import java.awt.GridBagLayout;
+import java.awt.GridBagConstraints;
+import java.awt.Insets;
+import javax.swing.SwingConstants;
+
+public class GiaoDienTong extends JFrame {
+
+	private JPanel contentPane;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					GiaoDienTong frame = new GiaoDienTong();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public GiaoDienTong() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 1366, 730);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JMenuBar menuBar = new JMenuBar();
+		menuBar.setBackground(Color.WHITE);
+		menuBar.setBounds(0, 0, 1284, 22);
+		contentPane.add(menuBar);
+		
+		JMenu mnNewMenu = new JMenu("H\u1EC7 th\u1ED1ng");
+		mnNewMenu.setBackground(Color.WHITE);
+		menuBar.add(mnNewMenu);
+		
+		JToolBar toolBar = new JToolBar();
+		toolBar.setBackground(Color.LIGHT_GRAY);
+		toolBar.setBounds(0, 22, 1284, 66);
+		contentPane.add(toolBar);
+		
+		JButton btnNewButton_1 = new JButton("H\u00F3a \u0110\u01A1n Thu\u00EA \u0110\u0129a");
+		btnNewButton_1.setIcon(new ImageIcon("C:\\Users\\zzngh\\Downloads\\icons8-add-48.png"));
+		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		toolBar.add(btnNewButton_1);
+		
+		JButton btnNewButton = new JButton("Trả Đĩa");
+		btnNewButton.setIcon(new ImageIcon("C:\\Users\\zzngh\\Downloads\\icons8-add-48.png"));
+		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		toolBar.add(btnNewButton);
+		
+		JButton btnNewButton_2 = new JButton("Tìm Kiếm Băng Đĩa");
+		btnNewButton_2.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		toolBar.add(btnNewButton_2);
+		
+		JPanel panel = new JPanel();
+		panel.setBounds(0, 88, 1304, 610);
+		contentPane.add(panel);
+		panel.setLayout(null);
+		
+		JLabel lblDanhMc = new JLabel("Danh Mục:");
+		lblDanhMc.setBounds(82, 35, 67, 17);
+		lblDanhMc.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		panel.add(lblDanhMc);
+		
+		JButton btnDanhSchBng = new JButton("Danh Sách Băng Đĩa");
+		btnDanhSchBng.setBounds(214, 18, 189, 51);
+		btnDanhSchBng.setFont(new Font("Dialog", Font.PLAIN, 14));
+		panel.add(btnDanhSchBng);
+		
+		JButton btnDanhSchNh = new JButton("Danh Sách Nhà Cung Cấp");
+		btnDanhSchNh.setBounds(462, 31, 189, 25);
+		btnDanhSchNh.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		panel.add(btnDanhSchNh);
+		
+		JButton btnDanhSchNhn = new JButton("Danh Sách Nhân Viên");
+		btnDanhSchNhn.setBounds(716, 31, 165, 25);
+		btnDanhSchNhn.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		panel.add(btnDanhSchNhn);
+		
+		JButton btnDanhSchThnh = new JButton("Danh Sách Thành Viên");
+		btnDanhSchThnh.setBounds(988, 31, 171, 25);
+		btnDanhSchThnh.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		panel.add(btnDanhSchThnh);
+		
+		JLabel lblBnga = new JLabel("B\u0103ng \u0110\u0129a:");
+		lblBnga.setBounds(89, 97, 60, 17);
+		panel.add(lblBnga);
+		lblBnga.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		
+		JButton btnNewButton_3 = new JButton("Thêm Băng Đĩa");
+		btnNewButton_3.setBounds(214, 80, 189, 51);
+		btnNewButton_3.setFont(new Font("Dialog", Font.PLAIN, 14));
+		panel.add(btnNewButton_3);
+		
+		JButton btnNewButton_4 = new JButton("Quản Lý Băng Đĩa");
+		btnNewButton_4.setBounds(462, 93, 143, 25);
+		btnNewButton_4.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		panel.add(btnNewButton_4);
+		
+		JButton btnTmKimBng = new JButton("Tìm Kiếm Băng Đĩa");
+		btnTmKimBng.setBounds(716, 93, 149, 25);
+		btnTmKimBng.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		panel.add(btnTmKimBng);
+		
+		JLabel lblNhSnXut = new JLabel("Nhà Cung Cấp:");
+		lblNhSnXut.setBounds(57, 159, 92, 17);
+		panel.add(lblNhSnXut);
+		lblNhSnXut.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		
+		JButton btnThmNhCung = new JButton("Thêm Nhà Cung Cấp");
+		btnThmNhCung.setBounds(214, 142, 189, 51);
+		btnThmNhCung.setFont(new Font("Dialog", Font.PLAIN, 14));
+		panel.add(btnThmNhCung);
+		
+		JButton btnSaNhCung = new JButton("Quản Lý Nhà Cung Cấp");
+		btnSaNhCung.setBounds(462, 155, 175, 25);
+		btnSaNhCung.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		panel.add(btnSaNhCung);
+		
+		JButton btnTmKimNh = new JButton("Tìm Kiếm Nhà Cung Cấp");
+		btnTmKimNh.setBounds(716, 155, 181, 25);
+		btnTmKimNh.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		panel.add(btnTmKimNh);
+		
+		JLabel lblNhnVin = new JLabel("Nh\u00E2n Vi\u00EAn:");
+		lblNhnVin.setBounds(82, 221, 67, 17);
+		panel.add(lblNhnVin);
+		lblNhnVin.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		
+		JButton btnThmNhnVin = new JButton("Thêm Nhân Viên");
+		btnThmNhnVin.setBounds(214, 204, 189, 51);
+		btnThmNhnVin.setFont(new Font("Dialog", Font.PLAIN, 14));
+		panel.add(btnThmNhnVin);
+		
+		JButton btnSaTtNhn = new JButton("Quản Lý Nhân Viên");
+		btnSaTtNhn.setBounds(462, 217, 149, 25);
+		btnSaTtNhn.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		panel.add(btnSaTtNhn);
+		
+		JButton btnXaNhnVin = new JButton("Phân Quyền Nhân Viên");
+		btnXaNhnVin.setBounds(716, 217, 173, 25);
+		btnXaNhnVin.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		panel.add(btnXaNhnVin);
+		
+		JLabel lblThnhVin = new JLabel("Th\u00E0nh Vi\u00EAn:");
+		lblThnhVin.setBounds(75, 283, 74, 17);
+		panel.add(lblThnhVin);
+		lblThnhVin.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		
+		JButton btnThmThnhVin = new JButton("Thêm Thành Viên");
+		btnThmThnhVin.setBounds(214, 266, 189, 51);
+		btnThmThnhVin.setFont(new Font("Dialog", Font.PLAIN, 14));
+		panel.add(btnThmThnhVin);
+		
+		JButton btnSaTtThnh = new JButton("Quản Lý Thành Viên");
+		btnSaTtThnh.setBounds(462, 279, 157, 25);
+		btnSaTtThnh.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		panel.add(btnSaTtThnh);
+		
+		JButton btnGiaHnThnh = new JButton("Thẻ Thành Viên");
+		btnGiaHnThnh.setBounds(716, 279, 129, 25);
+		btnGiaHnThnh.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		panel.add(btnGiaHnThnh);
+		
+		JLabel lblHanNhp = new JLabel("H\u00F3a \u0110\u01A1n Nh\u1EADp \u0110\u0129a:");
+		lblHanNhp.setBounds(30, 345, 119, 17);
+		panel.add(lblHanNhp);
+		lblHanNhp.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		
+		JButton btnToHan = new JButton("Tạo Hóa Đơn Nhập Đĩa");
+		btnToHan.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnToHan.setBounds(214, 328, 189, 51);
+		btnToHan.setFont(new Font("Dialog", Font.PLAIN, 14));
+		panel.add(btnToHan);
+		
+		JButton btnTmHan = new JButton("Tìm Hóa Đơn Nhập Đĩa");
+		btnTmHan.setBounds(462, 341, 173, 25);
+		btnTmHan.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		panel.add(btnTmHan);
+		
+		JLabel lblHanXut = new JLabel("Thuê Đĩa/Trả Đĩa:");
+		lblHanXut.setBounds(40, 407, 109, 17);
+		panel.add(lblHanXut);
+		lblHanXut.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		
+		JButton btnThua = new JButton("Thuê Đĩa");
+		btnThua.setBounds(214, 390, 189, 51);
+		btnThua.setFont(new Font("Dialog", Font.PLAIN, 14));
+		panel.add(btnThua);
+		
+		JButton btnTra = new JButton("Trả Đĩa");
+		btnTra.setBounds(462, 403, 77, 25);
+		btnTra.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		panel.add(btnTra);
+		
+		JButton btnTmKimHa = new JButton("Tìm Kiếm Hóa Đơn Thuê Đĩa");
+		btnTmKimHa.setBounds(716, 403, 207, 25);
+		btnTmKimHa.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		panel.add(btnTmKimHa);
+		
+		JLabel lblNewLabel = new JLabel("Thống Kê:");
+		lblNewLabel.setBounds(85, 468, 64, 17);
+		panel.add(lblNewLabel);
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		
+		JButton btnThngKDoanh = new JButton("Thống Kê Doanh Thu");
+		btnThngKDoanh.setBounds(214, 452, 189, 51);
+		btnThngKDoanh.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		panel.add(btnThngKDoanh);
+		
+		JLabel lblBoCo = new JLabel("Báo Cáo:");
+		lblBoCo.setBounds(94, 524, 55, 17);
+		lblBoCo.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		panel.add(lblBoCo);
+		
+		JButton btnToBoCo = new JButton("Tạo Báo Cáo");
+		btnToBoCo.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnToBoCo.setBounds(214, 514, 189, 51);
+		panel.add(btnToBoCo);
+	}
+}

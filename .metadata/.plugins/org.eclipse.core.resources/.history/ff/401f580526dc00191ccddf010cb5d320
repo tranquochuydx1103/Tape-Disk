@@ -1,0 +1,408 @@
+package GiaoDien;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JMenuBar;
+import javax.swing.JMenu;
+import java.awt.Color;
+import javax.swing.JToolBar;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import java.awt.Font;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.ImageIcon;
+import java.awt.GridLayout;
+import com.jgoodies.forms.layout.FormLayout;
+import com.jgoodies.forms.layout.ColumnSpec;
+import com.jgoodies.forms.layout.RowSpec;
+import net.miginfocom.swing.MigLayout;
+import java.awt.GridBagLayout;
+import java.awt.GridBagConstraints;
+import java.awt.Insets;
+import javax.swing.SwingConstants;
+
+public class GiaoDienTong extends JFrame {
+
+	private JPanel contentPane;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					GiaoDienTong frame = new GiaoDienTong();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public GiaoDienTong() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 1250, 768);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JMenuBar menuBar = new JMenuBar();
+		menuBar.setBackground(Color.WHITE);
+		menuBar.setBounds(0, 0, 1284, 22);
+		contentPane.add(menuBar);
+		
+		JMenu mnNewMenu = new JMenu("H\u1EC7 th\u1ED1ng");
+		mnNewMenu.setBackground(Color.WHITE);
+		menuBar.add(mnNewMenu);
+		
+		JToolBar toolBar = new JToolBar();
+		toolBar.setBackground(Color.LIGHT_GRAY);
+		toolBar.setBounds(0, 22, 1284, 66);
+		contentPane.add(toolBar);
+		
+		JButton btnNewButton_1 = new JButton("H\u00F3a \u0110\u01A1n Thu\u00EA \u0110\u0129a");
+		btnNewButton_1.setIcon(new ImageIcon("C:\\Users\\zzngh\\Downloads\\icons8-add-48.png"));
+		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		toolBar.add(btnNewButton_1);
+		
+		JButton btnNewButton = new JButton("Trả Đĩa");
+		btnNewButton.setIcon(new ImageIcon("C:\\Users\\zzngh\\Downloads\\icons8-add-48.png"));
+		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		toolBar.add(btnNewButton);
+		
+		JButton btnNewButton_2 = new JButton("Tìm Kiếm Băng Đĩa");
+		btnNewButton_2.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		toolBar.add(btnNewButton_2);
+		
+		JPanel panel = new JPanel();
+		panel.setBounds(0, 86, 1304, 610);
+		contentPane.add(panel);
+		GridBagLayout gbl_panel = new GridBagLayout();
+		gbl_panel.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 0, 0, 0, 0};
+		gbl_panel.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+		gbl_panel.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gbl_panel.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		panel.setLayout(gbl_panel);
+		
+		JLabel lblDanhMc = new JLabel("Danh Mục:");
+		lblDanhMc.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		GridBagConstraints gbc_lblDanhMc = new GridBagConstraints();
+		gbc_lblDanhMc.anchor = GridBagConstraints.EAST;
+		gbc_lblDanhMc.insets = new Insets(0, 0, 5, 5);
+		gbc_lblDanhMc.gridx = 1;
+		gbc_lblDanhMc.gridy = 1;
+		panel.add(lblDanhMc, gbc_lblDanhMc);
+		
+		JButton btnDanhSchBng = new JButton("Danh Sách Băng Đĩa");
+		btnDanhSchBng.setFont(new Font("Dialog", Font.PLAIN, 14));
+		GridBagConstraints gbc_btnDanhSchBng = new GridBagConstraints();
+		gbc_btnDanhSchBng.anchor = GridBagConstraints.WEST;
+		gbc_btnDanhSchBng.insets = new Insets(0, 0, 5, 5);
+		gbc_btnDanhSchBng.gridx = 5;
+		gbc_btnDanhSchBng.gridy = 1;
+		panel.add(btnDanhSchBng, gbc_btnDanhSchBng);
+		
+		JButton btnDanhSchNh = new JButton("Danh Sách Nhà Cung Cấp");
+		btnDanhSchNh.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		GridBagConstraints gbc_btnDanhSchNh = new GridBagConstraints();
+		gbc_btnDanhSchNh.anchor = GridBagConstraints.WEST;
+		gbc_btnDanhSchNh.insets = new Insets(0, 0, 5, 5);
+		gbc_btnDanhSchNh.gridx = 8;
+		gbc_btnDanhSchNh.gridy = 1;
+		panel.add(btnDanhSchNh, gbc_btnDanhSchNh);
+		
+		JButton btnDanhSchNhn = new JButton("Danh Sách Nhân Viên");
+		btnDanhSchNhn.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		GridBagConstraints gbc_btnDanhSchNhn = new GridBagConstraints();
+		gbc_btnDanhSchNhn.anchor = GridBagConstraints.WEST;
+		gbc_btnDanhSchNhn.insets = new Insets(0, 0, 5, 5);
+		gbc_btnDanhSchNhn.gridx = 11;
+		gbc_btnDanhSchNhn.gridy = 1;
+		panel.add(btnDanhSchNhn, gbc_btnDanhSchNhn);
+		
+		JButton btnDanhSchThnh = new JButton("Danh Sách Thành Viên");
+		btnDanhSchThnh.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		GridBagConstraints gbc_btnDanhSchThnh = new GridBagConstraints();
+		gbc_btnDanhSchThnh.anchor = GridBagConstraints.WEST;
+		gbc_btnDanhSchThnh.insets = new Insets(0, 0, 5, 0);
+		gbc_btnDanhSchThnh.gridx = 14;
+		gbc_btnDanhSchThnh.gridy = 1;
+		panel.add(btnDanhSchThnh, gbc_btnDanhSchThnh);
+		
+		JLabel lblBnga = new JLabel("B\u0103ng \u0110\u0129a:");
+		GridBagConstraints gbc_lblBnga = new GridBagConstraints();
+		gbc_lblBnga.anchor = GridBagConstraints.EAST;
+		gbc_lblBnga.insets = new Insets(0, 0, 5, 5);
+		gbc_lblBnga.gridx = 1;
+		gbc_lblBnga.gridy = 3;
+		panel.add(lblBnga, gbc_lblBnga);
+		lblBnga.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		
+		JButton btnNewButton_3 = new JButton("Thêm Băng Đĩa");
+		btnNewButton_3.setFont(new Font("Dialog", Font.PLAIN, 14));
+		GridBagConstraints gbc_btnNewButton_3 = new GridBagConstraints();
+		gbc_btnNewButton_3.anchor = GridBagConstraints.WEST;
+		gbc_btnNewButton_3.insets = new Insets(0, 0, 5, 5);
+		gbc_btnNewButton_3.gridx = 5;
+		gbc_btnNewButton_3.gridy = 3;
+		panel.add(btnNewButton_3, gbc_btnNewButton_3);
+		
+		JButton btnNewButton_4 = new JButton("Sửa Băng Đĩa");
+		btnNewButton_4.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		GridBagConstraints gbc_btnNewButton_4 = new GridBagConstraints();
+		gbc_btnNewButton_4.anchor = GridBagConstraints.WEST;
+		gbc_btnNewButton_4.insets = new Insets(0, 0, 5, 5);
+		gbc_btnNewButton_4.gridx = 8;
+		gbc_btnNewButton_4.gridy = 3;
+		panel.add(btnNewButton_4, gbc_btnNewButton_4);
+		
+		JButton btnXaBnga = new JButton("Xóa Băng Đĩa");
+		btnXaBnga.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		GridBagConstraints gbc_btnXaBnga = new GridBagConstraints();
+		gbc_btnXaBnga.anchor = GridBagConstraints.WEST;
+		gbc_btnXaBnga.insets = new Insets(0, 0, 5, 5);
+		gbc_btnXaBnga.gridx = 11;
+		gbc_btnXaBnga.gridy = 3;
+		panel.add(btnXaBnga, gbc_btnXaBnga);
+		
+		JButton btnTmKimBng = new JButton("Tìm Kiếm Băng Đĩa");
+		btnTmKimBng.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		GridBagConstraints gbc_btnTmKimBng = new GridBagConstraints();
+		gbc_btnTmKimBng.anchor = GridBagConstraints.WEST;
+		gbc_btnTmKimBng.insets = new Insets(0, 0, 5, 0);
+		gbc_btnTmKimBng.gridx = 14;
+		gbc_btnTmKimBng.gridy = 3;
+		panel.add(btnTmKimBng, gbc_btnTmKimBng);
+		
+		JLabel lblNhSnXut = new JLabel("Nhà Cung Cấp:");
+		GridBagConstraints gbc_lblNhSnXut = new GridBagConstraints();
+		gbc_lblNhSnXut.anchor = GridBagConstraints.EAST;
+		gbc_lblNhSnXut.insets = new Insets(0, 0, 5, 5);
+		gbc_lblNhSnXut.gridx = 1;
+		gbc_lblNhSnXut.gridy = 5;
+		panel.add(lblNhSnXut, gbc_lblNhSnXut);
+		lblNhSnXut.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		
+		JButton btnThmNhCung = new JButton("Thêm Nhà Cung Cấp");
+		btnThmNhCung.setFont(new Font("Dialog", Font.PLAIN, 14));
+		GridBagConstraints gbc_btnThmNhCung = new GridBagConstraints();
+		gbc_btnThmNhCung.anchor = GridBagConstraints.WEST;
+		gbc_btnThmNhCung.insets = new Insets(0, 0, 5, 5);
+		gbc_btnThmNhCung.gridx = 5;
+		gbc_btnThmNhCung.gridy = 5;
+		panel.add(btnThmNhCung, gbc_btnThmNhCung);
+		
+		JButton btnSaNhCung = new JButton("Sửa Nhà Cung Cấp");
+		btnSaNhCung.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		GridBagConstraints gbc_btnSaNhCung = new GridBagConstraints();
+		gbc_btnSaNhCung.anchor = GridBagConstraints.WEST;
+		gbc_btnSaNhCung.insets = new Insets(0, 0, 5, 5);
+		gbc_btnSaNhCung.gridx = 8;
+		gbc_btnSaNhCung.gridy = 5;
+		panel.add(btnSaNhCung, gbc_btnSaNhCung);
+		
+		JButton btnNewButton_5 = new JButton("Xóa Nhà Cung Cấp");
+		btnNewButton_5.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		GridBagConstraints gbc_btnNewButton_5 = new GridBagConstraints();
+		gbc_btnNewButton_5.anchor = GridBagConstraints.WEST;
+		gbc_btnNewButton_5.insets = new Insets(0, 0, 5, 5);
+		gbc_btnNewButton_5.gridx = 11;
+		gbc_btnNewButton_5.gridy = 5;
+		panel.add(btnNewButton_5, gbc_btnNewButton_5);
+		
+		JButton btnTmKimNh = new JButton("Tìm Kiếm Nhà Cung Cấp");
+		btnTmKimNh.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		GridBagConstraints gbc_btnTmKimNh = new GridBagConstraints();
+		gbc_btnTmKimNh.anchor = GridBagConstraints.WEST;
+		gbc_btnTmKimNh.insets = new Insets(0, 0, 5, 0);
+		gbc_btnTmKimNh.gridx = 14;
+		gbc_btnTmKimNh.gridy = 5;
+		panel.add(btnTmKimNh, gbc_btnTmKimNh);
+		
+		JLabel lblNhnVin = new JLabel("Nh\u00E2n Vi\u00EAn:");
+		GridBagConstraints gbc_lblNhnVin = new GridBagConstraints();
+		gbc_lblNhnVin.anchor = GridBagConstraints.EAST;
+		gbc_lblNhnVin.insets = new Insets(0, 0, 5, 5);
+		gbc_lblNhnVin.gridx = 1;
+		gbc_lblNhnVin.gridy = 7;
+		panel.add(lblNhnVin, gbc_lblNhnVin);
+		lblNhnVin.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		
+		JButton btnThmNhnVin = new JButton("Thêm Nhân Viên");
+		btnThmNhnVin.setFont(new Font("Dialog", Font.PLAIN, 14));
+		GridBagConstraints gbc_btnThmNhnVin = new GridBagConstraints();
+		gbc_btnThmNhnVin.anchor = GridBagConstraints.WEST;
+		gbc_btnThmNhnVin.insets = new Insets(0, 0, 5, 5);
+		gbc_btnThmNhnVin.gridx = 5;
+		gbc_btnThmNhnVin.gridy = 7;
+		panel.add(btnThmNhnVin, gbc_btnThmNhnVin);
+		
+		JButton btnSaTtNhn = new JButton("Quản Lý Nhân Viên");
+		btnSaTtNhn.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		GridBagConstraints gbc_btnSaTtNhn = new GridBagConstraints();
+		gbc_btnSaTtNhn.anchor = GridBagConstraints.WEST;
+		gbc_btnSaTtNhn.insets = new Insets(0, 0, 5, 5);
+		gbc_btnSaTtNhn.gridx = 8;
+		gbc_btnSaTtNhn.gridy = 7;
+		panel.add(btnSaTtNhn, gbc_btnSaTtNhn);
+		
+		JButton btnXaNhnVin = new JButton("Phân Quyền Nhân Viên");
+		btnXaNhnVin.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		GridBagConstraints gbc_btnXaNhnVin = new GridBagConstraints();
+		gbc_btnXaNhnVin.anchor = GridBagConstraints.WEST;
+		gbc_btnXaNhnVin.insets = new Insets(0, 0, 5, 5);
+		gbc_btnXaNhnVin.gridx = 11;
+		gbc_btnXaNhnVin.gridy = 7;
+		panel.add(btnXaNhnVin, gbc_btnXaNhnVin);
+		
+		JLabel lblThnhVin = new JLabel("Th\u00E0nh Vi\u00EAn:");
+		GridBagConstraints gbc_lblThnhVin = new GridBagConstraints();
+		gbc_lblThnhVin.anchor = GridBagConstraints.EAST;
+		gbc_lblThnhVin.insets = new Insets(0, 0, 5, 5);
+		gbc_lblThnhVin.gridx = 1;
+		gbc_lblThnhVin.gridy = 9;
+		panel.add(lblThnhVin, gbc_lblThnhVin);
+		lblThnhVin.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		
+		JButton btnThmThnhVin = new JButton("Thêm Thành Viên");
+		btnThmThnhVin.setFont(new Font("Dialog", Font.PLAIN, 14));
+		GridBagConstraints gbc_btnThmThnhVin = new GridBagConstraints();
+		gbc_btnThmThnhVin.anchor = GridBagConstraints.WEST;
+		gbc_btnThmThnhVin.insets = new Insets(0, 0, 5, 5);
+		gbc_btnThmThnhVin.gridx = 5;
+		gbc_btnThmThnhVin.gridy = 9;
+		panel.add(btnThmThnhVin, gbc_btnThmThnhVin);
+		
+		JButton btnSaTtThnh = new JButton("Quản Lý Thành Viên");
+		btnSaTtThnh.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		GridBagConstraints gbc_btnSaTtThnh = new GridBagConstraints();
+		gbc_btnSaTtThnh.anchor = GridBagConstraints.WEST;
+		gbc_btnSaTtThnh.insets = new Insets(0, 0, 5, 5);
+		gbc_btnSaTtThnh.gridx = 8;
+		gbc_btnSaTtThnh.gridy = 9;
+		panel.add(btnSaTtThnh, gbc_btnSaTtThnh);
+		
+		JButton btnGiaHnThnh = new JButton("Thẻ Thành Viên");
+		btnGiaHnThnh.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		GridBagConstraints gbc_btnGiaHnThnh = new GridBagConstraints();
+		gbc_btnGiaHnThnh.anchor = GridBagConstraints.WEST;
+		gbc_btnGiaHnThnh.insets = new Insets(0, 0, 5, 5);
+		gbc_btnGiaHnThnh.gridx = 11;
+		gbc_btnGiaHnThnh.gridy = 9;
+		panel.add(btnGiaHnThnh, gbc_btnGiaHnThnh);
+		
+		JLabel lblHanNhp = new JLabel("H\u00F3a \u0110\u01A1n Nh\u1EADp \u0110\u0129a:");
+		GridBagConstraints gbc_lblHanNhp = new GridBagConstraints();
+		gbc_lblHanNhp.anchor = GridBagConstraints.EAST;
+		gbc_lblHanNhp.insets = new Insets(0, 0, 5, 5);
+		gbc_lblHanNhp.gridx = 1;
+		gbc_lblHanNhp.gridy = 11;
+		panel.add(lblHanNhp, gbc_lblHanNhp);
+		lblHanNhp.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		
+		JButton btnToHan = new JButton("Tạo Hóa Đơn Nhập Đĩa");
+		btnToHan.setFont(new Font("Dialog", Font.PLAIN, 14));
+		GridBagConstraints gbc_btnToHan = new GridBagConstraints();
+		gbc_btnToHan.anchor = GridBagConstraints.WEST;
+		gbc_btnToHan.insets = new Insets(0, 0, 5, 5);
+		gbc_btnToHan.gridx = 5;
+		gbc_btnToHan.gridy = 11;
+		panel.add(btnToHan, gbc_btnToHan);
+		
+		JButton btnTmHan = new JButton("Tìm Hóa Đơn Nhập Đĩa");
+		btnTmHan.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		GridBagConstraints gbc_btnTmHan = new GridBagConstraints();
+		gbc_btnTmHan.anchor = GridBagConstraints.WEST;
+		gbc_btnTmHan.insets = new Insets(0, 0, 5, 5);
+		gbc_btnTmHan.gridx = 8;
+		gbc_btnTmHan.gridy = 11;
+		panel.add(btnTmHan, gbc_btnTmHan);
+		
+		JButton btnXaHan = new JButton("Xóa Hóa Đơn Nhập Đĩa");
+		btnXaHan.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		GridBagConstraints gbc_btnXaHan = new GridBagConstraints();
+		gbc_btnXaHan.anchor = GridBagConstraints.WEST;
+		gbc_btnXaHan.insets = new Insets(0, 0, 5, 5);
+		gbc_btnXaHan.gridx = 11;
+		gbc_btnXaHan.gridy = 11;
+		panel.add(btnXaHan, gbc_btnXaHan);
+		
+		JLabel lblHanXut = new JLabel("Thuê Đĩa/Trả Đĩa:");
+		GridBagConstraints gbc_lblHanXut = new GridBagConstraints();
+		gbc_lblHanXut.anchor = GridBagConstraints.EAST;
+		gbc_lblHanXut.insets = new Insets(0, 0, 5, 5);
+		gbc_lblHanXut.gridx = 1;
+		gbc_lblHanXut.gridy = 13;
+		panel.add(lblHanXut, gbc_lblHanXut);
+		lblHanXut.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		
+		JButton btnThua = new JButton("Tạo Hóa Đơn Thuê Đĩa");
+		btnThua.setFont(new Font("Dialog", Font.PLAIN, 14));
+		GridBagConstraints gbc_btnThua = new GridBagConstraints();
+		gbc_btnThua.anchor = GridBagConstraints.WEST;
+		gbc_btnThua.insets = new Insets(0, 0, 5, 5);
+		gbc_btnThua.gridx = 5;
+		gbc_btnThua.gridy = 13;
+		panel.add(btnThua, gbc_btnThua);
+		
+		JButton btnTmKimHa = new JButton("Tìm Kiếm Hóa Đơn Thuê Đĩa");
+		btnTmKimHa.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		GridBagConstraints gbc_btnTmKimHa = new GridBagConstraints();
+		gbc_btnTmKimHa.anchor = GridBagConstraints.WEST;
+		gbc_btnTmKimHa.insets = new Insets(0, 0, 5, 5);
+		gbc_btnTmKimHa.gridx = 8;
+		gbc_btnTmKimHa.gridy = 13;
+		panel.add(btnTmKimHa, gbc_btnTmKimHa);
+		
+		JButton btnTra = new JButton("Trả Đĩa");
+		btnTra.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		GridBagConstraints gbc_btnTra = new GridBagConstraints();
+		gbc_btnTra.anchor = GridBagConstraints.WEST;
+		gbc_btnTra.insets = new Insets(0, 0, 5, 5);
+		gbc_btnTra.gridx = 11;
+		gbc_btnTra.gridy = 13;
+		panel.add(btnTra, gbc_btnTra);
+		
+		JLabel lblNewLabel = new JLabel("Thống Kê:");
+		GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
+		gbc_lblNewLabel.anchor = GridBagConstraints.EAST;
+		gbc_lblNewLabel.insets = new Insets(0, 0, 5, 5);
+		gbc_lblNewLabel.gridx = 1;
+		gbc_lblNewLabel.gridy = 15;
+		panel.add(lblNewLabel, gbc_lblNewLabel);
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		
+		JButton btnThngKDoanh = new JButton("Thống Kê Doanh Thu");
+		btnThngKDoanh.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		GridBagConstraints gbc_btnThngKDoanh = new GridBagConstraints();
+		gbc_btnThngKDoanh.anchor = GridBagConstraints.WEST;
+		gbc_btnThngKDoanh.insets = new Insets(0, 0, 5, 5);
+		gbc_btnThngKDoanh.gridx = 5;
+		gbc_btnThngKDoanh.gridy = 15;
+		panel.add(btnThngKDoanh, gbc_btnThngKDoanh);
+		
+		JLabel lblBoCo = new JLabel("Báo Cáo:");
+		lblBoCo.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		GridBagConstraints gbc_lblBoCo = new GridBagConstraints();
+		gbc_lblBoCo.anchor = GridBagConstraints.EAST;
+		gbc_lblBoCo.insets = new Insets(0, 0, 5, 5);
+		gbc_lblBoCo.gridx = 1;
+		gbc_lblBoCo.gridy = 17;
+		panel.add(lblBoCo, gbc_lblBoCo);
+	}
+}

@@ -1,0 +1,104 @@
+package GiaoDien;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JButton;
+import java.awt.Font;
+import java.awt.Color;
+import javax.swing.JMenuBar;
+import java.awt.SystemColor;
+import javax.swing.JMenu;
+import javax.swing.JScrollPane;
+import javax.swing.border.TitledBorder;
+import javax.swing.border.LineBorder;
+import javax.swing.JLabel;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+
+public class GiaoDienQuanLyHoaDon extends JFrame {
+
+	private JPanel contentPane;
+	private JTable table_1;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					GiaoDienQuanLyHoaDon frame = new GiaoDienQuanLyHoaDon();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public GiaoDienQuanLyHoaDon() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 1366, 730);
+		contentPane = new JPanel();
+		contentPane.setBackground(Color.WHITE);
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JButton btnThot = new JButton("Thoát");
+		btnThot.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnThot.setBounds(1231, 657, 89, 23);
+		contentPane.add(btnThot);
+		
+		JButton btnngXut = new JButton("Đăng Xuất");
+		btnngXut.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnngXut.setBounds(1096, 657, 97, 23);
+		contentPane.add(btnngXut);
+		
+		JButton btnCit = new JButton("Cài Đặt");
+		btnCit.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnCit.setBounds(968, 657, 89, 23);
+		contentPane.add(btnCit);
+		
+		JPanel panel = new JPanel();
+		panel.setBorder(new LineBorder(new Color(0, 0, 0)));
+		panel.setBackground(Color.WHITE);
+		panel.setBounds(10, 303, 627, 343);
+		contentPane.add(panel);
+		panel.setLayout(null);
+		
+		JLabel lblChiTitPhiu = new JLabel("Chi Tiết Phiếu Thuê");
+		lblChiTitPhiu.setBounds(10, 0, 232, 35);
+		panel.add(lblChiTitPhiu);
+		lblChiTitPhiu.setFont(new Font("Sitka Small", Font.BOLD, 22));
+		
+		JScrollPane scrollPane_1 = new JScrollPane();
+		scrollPane_1.setBounds(10, 33, 602, 297);
+		panel.add(scrollPane_1);
+		
+		table_1 = new JTable();
+		table_1.setModel(new DefaultTableModel(
+			new Object[][] {
+			},
+			new String[] {
+				"M\u00E3 B\u0103ng \u0110\u0129a", "T\u00EAn B\u0103ng \u0110\u0129a", "S\u1ED1 L\u01B0\u1EE3ng", "Gi\u00E1 Thu\u00EA / Ng\u00E0y"
+			}
+		));
+		scrollPane_1.setViewportView(table_1);
+		
+		JMenuBar menuBar = new JMenuBar();
+		menuBar.setBackground(SystemColor.menu);
+		menuBar.setBounds(0, 0, 1350, 22);
+		contentPane.add(menuBar);
+		
+		JMenu mnHThng = new JMenu("Hệ THống");
+		menuBar.add(mnHThng);
+	}
+}

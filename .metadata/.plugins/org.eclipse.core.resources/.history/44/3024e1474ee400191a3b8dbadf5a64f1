@@ -1,0 +1,58 @@
+package GiaoDien;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JButton;
+import java.awt.Font;
+
+public class GiaoDienQuanLyHoaDon extends JFrame {
+
+	private JPanel contentPane;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					GiaoDienQuanLyHoaDon frame = new GiaoDienQuanLyHoaDon();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public GiaoDienQuanLyHoaDon() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 1366, 730);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JButton btnThot = new JButton("Thoát");
+		btnThot.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnThot.setBounds(1231, 657, 89, 23);
+		contentPane.add(btnThot);
+		
+		JButton btnngXut = new JButton("Đăng Xuất");
+		btnngXut.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnngXut.setBounds(1096, 657, 97, 23);
+		contentPane.add(btnngXut);
+		
+		JButton btnCit = new JButton("Cài Đặt");
+		btnCit.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnCit.setBounds(968, 657, 89, 23);
+		contentPane.add(btnCit);
+	}
+}

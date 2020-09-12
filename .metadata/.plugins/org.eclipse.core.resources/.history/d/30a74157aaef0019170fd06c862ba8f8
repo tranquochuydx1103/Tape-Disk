@@ -1,0 +1,248 @@
+package GiaoDien;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JMenuBar;
+import javax.swing.JMenu;
+import java.awt.Font;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import java.awt.SystemColor;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JMenuItem;
+import java.awt.Color;
+
+public class GiaoDienTong extends JFrame implements ActionListener {
+
+	private JPanel contentPane;
+	private JMenuItem mntmCNBangDia, mntmTaiKhoan, mntmPhnQuyn, mntmngXut, mntmThot, mntmDMBangDia, mntmDMNCC,
+			mntmCNNCC, mntmCNKhachHang, mntmCNNhanVien, mntmNhapBangDia, mntmDMHoaDon, mntmDMKhachHang, mntmDMNhanVien,
+			mntmTraBangDia, mntmThueBangDia;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					GiaoDienTong frame = new GiaoDienTong();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public GiaoDienTong() {
+		setTitle("Quản Lý Cửa Hàng Thuê Băng Đĩa");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 1014, 572);
+		setLocationRelativeTo(null);
+		setResizable(false);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+
+		JMenuBar menuBar = new JMenuBar();
+		menuBar.setBackground(SystemColor.menu);
+		menuBar.setBounds(0, 0, 1360, 32);
+		contentPane.add(menuBar);
+
+		JMenu mnHeThong = new JMenu("Hệ Thống");
+		mnHeThong.setFont(new Font("Segoe UI", Font.PLAIN, 15));
+		menuBar.add(mnHeThong);
+
+		mntmTaiKhoan = new JMenuItem("Tài Khoản");
+		mntmTaiKhoan.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+		mnHeThong.add(mntmTaiKhoan);
+
+		mntmPhnQuyn = new JMenuItem("Phân Quyền");
+		mntmPhnQuyn.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+		mnHeThong.add(mntmPhnQuyn);
+
+		mntmngXut = new JMenuItem("Đăng Xuất");
+		mntmngXut.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+		mnHeThong.add(mntmngXut);
+
+		mntmThot = new JMenuItem("Thoát");
+		mntmThot.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+		mnHeThong.add(mntmThot);
+
+		JMenu mnDanhMuc = new JMenu("Danh Mục");
+		mnDanhMuc.setFont(new Font("Segoe UI", Font.PLAIN, 15));
+		menuBar.add(mnDanhMuc);
+
+		mntmDMBangDia = new JMenuItem("Băng Đĩa");
+		mntmDMBangDia.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+		mnDanhMuc.add(mntmDMBangDia);
+
+		mntmDMNCC = new JMenuItem("Nhà Cung Cấp");
+		mntmDMNCC.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+		mnDanhMuc.add(mntmDMNCC);
+		mntmDMHoaDon = new JMenuItem("Hóa Đơn");
+		mntmDMHoaDon.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+		mnDanhMuc.add(mntmDMHoaDon);
+
+		mntmDMKhachHang = new JMenuItem("Khách Hàng");
+		mntmDMKhachHang.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+		mnDanhMuc.add(mntmDMKhachHang);
+
+		mntmDMNhanVien = new JMenuItem("Nhân Viên");
+		mntmDMNhanVien.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+		mnDanhMuc.add(mntmDMNhanVien);
+
+		JMenu mnCapNhat = new JMenu("Cập Nhật");
+		mnCapNhat.setFont(new Font("Segoe UI", Font.PLAIN, 15));
+		menuBar.add(mnCapNhat);
+
+		mntmCNBangDia = new JMenuItem("Băng Đĩa");
+		mntmCNBangDia.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+		mnCapNhat.add(mntmCNBangDia);
+		mntmCNBangDia.addActionListener(this);
+
+		mntmCNNCC = new JMenuItem("Nhà Cung Cấp");
+		mntmCNNCC.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+		mnCapNhat.add(mntmCNNCC);
+
+		mntmCNKhachHang = new JMenuItem("Khách Hàng");
+		mntmCNKhachHang.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+		mnCapNhat.add(mntmCNKhachHang);
+		mntmCNKhachHang.addActionListener(this);
+
+		mntmCNNhanVien = new JMenuItem("Nhân Viên");
+		mntmCNNhanVien.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+		mnCapNhat.add(mntmCNNhanVien);
+		mntmCNNhanVien.addActionListener(this);
+
+		JMenu mnXuLy = new JMenu("Xử Lý");
+		mnXuLy.setFont(new Font("Segoe UI", Font.PLAIN, 15));
+		menuBar.add(mnXuLy);
+
+		mntmNhapBangDia = new JMenuItem("Nhập Băng Đĩa");
+		mntmNhapBangDia.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+		mnXuLy.add(mntmNhapBangDia);
+
+		mntmThueBangDia = new JMenuItem("Thuê Băng Đĩa");
+		mntmThueBangDia.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+		mnXuLy.add(mntmThueBangDia);
+
+		mntmTraBangDia = new JMenuItem("Trả Băng Đĩa");
+		mntmTraBangDia.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+		mnXuLy.add(mntmTraBangDia);
+
+		JMenu mnTimKiem = new JMenu("Tìm Kiếm");
+		mnTimKiem.setFont(new Font("Segoe UI", Font.PLAIN, 15));
+		menuBar.add(mnTimKiem);
+
+		JMenuItem mntmTKBangDia = new JMenuItem("Băng Đĩa");
+		mntmTKBangDia.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+		mnTimKiem.add(mntmTKBangDia);
+
+		JMenuItem mntmTKHoaDon = new JMenuItem("Hóa Đơn");
+		mntmTKHoaDon.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+		mnTimKiem.add(mntmTKHoaDon);
+
+		JMenuItem mntmTKKhachHang = new JMenuItem("Khách Hàng");
+		mntmTKKhachHang.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+		mnTimKiem.add(mntmTKKhachHang);
+
+		JMenu mnThongKe = new JMenu("Thống Kê");
+		mnThongKe.setFont(new Font("Segoe UI", Font.PLAIN, 15));
+		menuBar.add(mnThongKe);
+
+		JMenu mnTKBangDia = new JMenu("Xếp Hạng Băng Đĩa");
+		mnTKBangDia.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+		mnThongKe.add(mnTKBangDia);
+
+		JMenuItem mntmDoanhThu = new JMenuItem("Doanh Thu");
+		mntmDoanhThu.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+		mnTKBangDia.add(mntmDoanhThu);
+
+		JMenuItem mntmYeuThich = new JMenuItem("Yêu Thích");
+		mntmYeuThich.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+		mnTKBangDia.add(mntmYeuThich);
+
+		JMenu mnTKDoanhThu = new JMenu("Thống Kê Doanh Thu");
+		mnTKDoanhThu.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+		mnThongKe.add(mnTKDoanhThu);
+
+		JMenuItem mntmTuan = new JMenuItem("Tuần");
+		mntmTuan.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+		mnTKDoanhThu.add(mntmTuan);
+
+		JMenuItem mntmThang = new JMenuItem("Tháng");
+		mntmThang.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+		mnTKDoanhThu.add(mntmThang);
+
+		JMenuItem mntmQuy = new JMenuItem(" Quý");
+		mntmQuy.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+		mnTKDoanhThu.add(mntmQuy);
+
+		JMenuItem mntmNam = new JMenuItem("Năm");
+		mntmNam.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+		mnTKDoanhThu.add(mntmNam);
+
+		JMenuItem mntmTKLuong = new JMenuItem("Thống Kê Lương");
+		mntmTKLuong.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+		mnThongKe.add(mntmTKLuong);
+
+		JMenu mnBaoCao = new JMenu("Báo Cáo");
+		mnBaoCao.setFont(new Font("Segoe UI", Font.PLAIN, 15));
+		menuBar.add(mnBaoCao);
+
+		JMenuItem mntmTaoBaoCao = new JMenuItem("Tạo Báo Cáo");
+		mntmTaoBaoCao.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+		mnBaoCao.add(mntmTaoBaoCao);
+
+		JMenuItem mntmXemBaoCao = new JMenuItem("Xem Báo Cáo");
+		mntmXemBaoCao.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+		mnBaoCao.add(mntmXemBaoCao);
+
+		JMenuItem mntmInBaoCao = new JMenuItem("In Báo Cáo");
+		mntmInBaoCao.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+		mnBaoCao.add(mntmInBaoCao);
+		
+		JButton btnngXut = new JButton("Đăng Xuất");
+		btnngXut.setBackground(Color.WHITE);
+		btnngXut.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnngXut.setBounds(864, 489, 116, 32);
+		contentPane.add(btnngXut);
+		
+				JLabel lblNewLabel = new JLabel("");
+				lblNewLabel.setIcon(new ImageIcon(
+						"C:\\Users\\zzngh\\OneDrive\\Hình ảnh\\Ảnh chụp màn hình\\utakata-naruto-40265-3840x2160.jpg"));
+				lblNewLabel.setBounds(0, 31, 1085, 512);
+				contentPane.add(lblNewLabel);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		Object o = e.getSource();
+		if (o.equals(mntmCNBangDia)) {
+			GiaoDienQuanLyBangDia bd = new GiaoDienQuanLyBangDia();
+			bd.setVisible(true);
+		}
+		else if(o.equals(mntmCNKhachHang)) {
+			GiaoDienQuanLyKhachHang kh = new GiaoDienQuanLyKhachHang();
+			kh.setVisible(true);
+		}
+		else if(o.equals(mntmCNNhanVien)) {
+			GiaoDienQuanLyNhanVien nv = new GiaoDienQuanLyNhanVien();
+			nv.setVisible(true);
+		}
+	}
+}
